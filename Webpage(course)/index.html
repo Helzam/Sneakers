@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <style>
+        /* Adjustments for cart placement */
+        header {
+            position: relative; /* Ensure positioning context for child elements */
+        }
+
+        .user-profile {
+            float: left; /* Float the user profile to the left */
+            margin-right: 20px; /* Add margin between user profile and cart */
+        }
+
+        .cart {
+            position: absolute;
+            top: 50%; /* Adjust as needed */
+            right: 120px; /* Adjust as needed */
+            transform: translateY(-50%); /* Center vertically */
+        }
+
+        .main-image {
+            float: left;
+            margin-right: 20px; /* Adjust the margin as needed */
+        }
+
+        .product-info {
+            overflow: hidden; /* Clear the float */
+        }
+
+        .thumbnails {
+            clear: both; /* Clear floats */
+            margin-top: 20px; /* Add margin to separate thumbnails from the main image */
+        }
+
+        .thumbnails img {
+            /* Styles for the non-hover state (normal state) on all devices */
+            width: 100px; /* Adjust the initial size of the thumbnails */
+            transition: transform 0.2s; /* Add a smooth transition effect */
+        }
+
+        .thumbnails img:hover {
+            /* Styles for the hover state on all devices */
+            transform: scale(2); /* Scale the image up by 10% on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="logo"></h1>
+            <img src="Pictures/logo.svg" alt="logo">
+            <ul>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Moved cart container inside header and next to user profile -->
+        <div class="user-profile">
+            <img src="Pictures/image-avatar.png" alt="User Profile">
+        </div>
+        <div class="cart">
+            <img class="wraparound" src="Pictures/icon-cart.svg" alt="Shopping Cart">
+            <span id="cart-badge">0</span>
+        </div>
+    </header>
+    
+    <main>
+        <div class="product-details">
+            <div class="main-image">
+                <img src="Pictures/image-product-1.jpg" alt="Main Product Image">
+            </div>
+            <div class="product-info">
+                <h1 class="product-name">SNEAKERS COMPANY</h1>
+                <h2>Fall LIMITED SNEAKERS</h2>
+                <p class="product-description">Collections Men Women About Contact Sneaker Company Fall Limited Edition Sneakers These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+                <p class="product-price">
+                    <strong>$120.00</strong>
+                    <span class="discount-badge">
+                        <img src="discount-badge.png" alt="50% Off">
+                    </span>
+                </p>
+                <div class="quantity">
+                    <button class="decrement" onclick="decrementQuantity()">-</button>
+                    <input type="text" id="quantity-input" value="1">
+                    <button class="increment" onclick="incrementQuantity()">+</button>
+                </div>
+                <div>
+                    <div id="cart-container" class="cart" onclick="toggleCart()">
+                        
+                        
+                    </div>
+                    <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    <button id="remove-from-cart-button" onclick="removeFromCart()">Remove from Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="thumbnails">
+            <!-- Add your thumbnail images here -->
+            <img src="Pictures/image-product-1-thumbnail.jpg" alt="thumbnails1">
+            <img src="Pictures/image-product-2-thumbnail.jpg" alt="thumbnails2">
+            <img src="Pictures/image-product-3-thumbnail.jpg" alt="thumbnails3">
+            <img src="Pictures/image-product-4-thumbnail.jpg" alt="thumbnails4">
+        </div>
+    </main>
+    
+    <footer>
+        <!-- Your footer content here -->
+    </footer>
+
+    <button id="menu-toggle" class="menu-button">Menu</button>
+    <div id="mobile-menu" class="mobile-menu">
+        <!-- Add mobile menu content here -->
+    </div>
+    
+    <script src="Javascript.js"></script>
+    <script>
+        let quantity = 1; // Initial quantity
+
+        function incrementQuantity() {
+            quantity++;
+            updateQuantity();
+        }
+
+        function decrementQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                updateQuantity();
+            }
+        }
+
+        function updateQuantity() {
+            const quantityInput = document.getElementById('quantity-input');
+            quantityInput.value = quantity;
+        }
+
+        // Example: Add event listeners for add and remove buttons
+        document.querySelector('.increment').addEventListener('click', incrementQuantity);
+        document.querySelector('.decrement').addEventListener('click', decrementQuantity);
+    </script>
+</body>
+</html>

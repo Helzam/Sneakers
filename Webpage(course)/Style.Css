@@ -1,0 +1,81 @@
+header {
+    background-color: hwb(60 97% 3%);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.user-profile, .cart {
+    margin-left: auto;
+}
+
+.cart {
+    margin-right: 20px; /* Adjust the margin to move the cart symbol to the left */
+}
+
+.menu-button {
+    display: none; /* Hidden by default on desktop */
+}
+
+.mobile-menu {
+    display: none; /* Hidden by default on desktop */
+}
+
+/* Media query to show the menu button and mobile menu on smaller screens */
+@media (max-width: 768px) {
+    .menu-button {
+        display: block;
+    }
+
+    .mobile-menu.show-menu {
+        display: block;
+    }
+}
+
+.thumbnails img:hover {
+    /* Define the hover effect styles here */
+    border: 2px solid rgb(241, 240, 238); /* Add a border or any other style you prefer */
+    opacity: 0.7; /* Adjust the opacity to your liking */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+.main-image img {
+    width: 300px; /* Set a specific width */
+    height: 200px; /* Set a specific height */.main-image {
+        float: left;
+        margin-right: 20px; /* Adjust the margin as needed */
+    }
+
+}
+
+
+.thumbnails img {
+    /* Styles for the non-hover state (normal state) on all devices */
+    width: 100px; /* Adjust the initial size of the thumbnails */
+    transition: transform 0.2s; /* Add a smooth transition effect */
+}
+
+.thumbnails img:hover {
+    /* Styles for the hover state on all devices */
+    transform: scale(2); /* Scale the image up by 10% on hover */
+}
